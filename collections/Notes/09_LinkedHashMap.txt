@@ -1,0 +1,10 @@
+LinkedHashMap in Java is a subclass of HashMap that maintains a doubly-linked list running through all of its entries. This linked list defines the iteration ordering, which is normally the order in which keys were inserted into the map (insertion-order).
+Characteristics:
+- Maintains insertion order of key-value pairs
+- Allows one null key and multiple null values
+- Not synchronized (not thread-safe)
+- Provides constant-time (O(1)) performance for basic operations (get and put) on average, assuming the hash function disperses elements properly
+
+Ordering:
+- Insertion-order: The order in which keys were inserted into the map
+- Access-order: Can be configured to maintain access order (most recently accessed entries are moved to the end of the list)

@@ -1,0 +1,4 @@
+PriorityQueue polls elements based on their priority (natural ordering). Elements with higher priority are served before elements with lower priority. If two elements have the same priority, they are served according to their order in the queue (FIFO).
+Additionally, we can pass a custom comparator in the constructor, and the elements will be ordered based on that comparator.
+Priority Queue is implemented as a min-heap by default in Java, for natural ordering. To implement a max-heap, we can use a custom comparator that reverses the natural order. In this data structure, the head of the queue is the least element with respect to the specified ordering.
+The time complexity for insertion and deletion operations in a Priority Queue is O(log n), where n is the number of elements in the queue.

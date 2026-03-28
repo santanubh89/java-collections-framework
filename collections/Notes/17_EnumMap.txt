@@ -1,0 +1,9 @@
+EnumMap is a specialized Map implementation in Java that is designed to use enum types as keys. It is part of the java.util package and provides a high-performance and memory-efficient way to map enum constants to values.
+// Key Features of EnumMap:
+// 1. Enum Keys: EnumMap can only use enum types as keys, ensuring type safety.
+// 2. Performance: EnumMap is implemented as an array, making it faster than other Map implementations like HashMap or TreeMap.
+// 3. Memory Efficiency: EnumMap uses less memory compared to other Map implementations because it leverages the fixed set of enum constants.
+// 4. Null Keys: EnumMap does not allow null keys, but it can store null values.
+// Example Usage:
+EnumMap uses an array internally to store the values associated with each enum constant, which allows for fast access and efficient memory usage. The array is of fixed size, determined by the number of constants in the enum type, which eliminates the need for dynamic resizing and reduces overhead.
+Retrieval and insertion uses the ordinal value of the enum constants to directly index into the array, resulting in O(1) time complexity for these operations.

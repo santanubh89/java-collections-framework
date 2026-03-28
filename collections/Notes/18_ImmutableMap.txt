@@ -1,0 +1,1 @@
+Immutable maps can be created using the `Map.of` and `Map.ofEntries` methods introduced in Java 9. These maps are immutable, meaning that once they are created, their contents cannot be changed.

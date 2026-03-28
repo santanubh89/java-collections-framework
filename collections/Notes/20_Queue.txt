@@ -1,0 +1,17 @@
+Queue = First In First Out (FIFO) data structure where elements are added at the back and removed from the front.
+Queue ->
+    LinkedList
+    Priority Queue
+    Circular Queue
+    Deque (Double-Ended Queue)
+
+Operations:
+Add to the end:
+offer - returns false if unable to add
+add - throws exception if unable to add
+Remove from the front:
+poll - returns null if empty
+remove - throws exception if empty
+Peek at the front:
+peek - returns null if empty
+element - throws exception if empty

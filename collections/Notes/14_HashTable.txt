@@ -1,0 +1,3 @@
+HashTable is synchronized and implements Map interface. It is similar to HashMap but is thread-safe and does not allow null keys or values.
+This is a legacy class and is generally replaced by ConcurrentHashMap in modern applications.
+Due to thread-safety, HashTable operations are slower compared to HashMap.

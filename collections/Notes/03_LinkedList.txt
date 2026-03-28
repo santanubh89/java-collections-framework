@@ -1,0 +1,33 @@
+LinkedList is an implementation of List interface that uses a doubly linked list to store elements. It allows for efficient insertion and deletion of elements at both ends and provides better performance for certain operations compared to ArrayList, especially when dealing with large datasets or frequent modifications.
+
+Each element stores a reference to the previous and next elements, allowing for efficient traversal in both directions. However, accessing elements by index is slower compared to ArrayList, as it requires traversing the list from the beginning or end.
+
+LinkedList contains Node class to represent each element in the list. Each Node object contains three fields: data, next (reference to the next node), and prev (reference to the previous node).
+
+Last element points to null in the next field and the first element points to null in the prev field.
+
+Singly Linked List is a type of linked list where each node contains a reference to the next node only, allowing for unidirectional traversal. In contrast, a doubly linked list allows traversal in both directions by maintaining references to both the next and previous nodes.
+
+Circular Linked List is a variation of linked list where the last node points back to the first node, forming a circular structure. This allows for continuous traversal of the list without reaching a null reference.
+
+Methods of LinkedList:
+offer = similar to add but returns boolean indicating success
+peek = retrieves but does not remove the head (first element) of the list, returns null if the list is empty
+poll = retrieves and removes the head (first element) of the list, returns null if the list is empty
+addFirst = adds an element at the beginning of the list
+addLast = adds an element at the end of the list
+removeFirst = removes and returns the first element of the list
+removeLast = removes and returns the last element of the list
+getFirst = retrieves the first element of the list without removing it
+getLast = retrieves the last element of the list without removing it
+
+Access elements using get(index) method, but it is less efficient than ArrayList for random access due to the need to traverse the list.
+Adding elements involves updating the next and prev references of neighboring nodes to include the new node.
+Remove involves updating the next and prev references of neighboring nodes to bypass the removed node.
+
+Performance:
+Insertion and deletion is faster in LinkedList compared to ArrayList, especially for large lists or frequent modifications, as it does not require shifting elements. addFirst/addLast and removeFirst/removeLast operations are O(1).
+Random access is slower in LinkedList compared to ArrayList, as it requires traversing the list from the beginning or end to reach a specific index. O(n) time complexity for access by index.
+Memory overhead is higher in LinkedList due to the additional references (next and prev) stored in each node.
+
+LinkedList can be used to implement stacks and queues efficiently, as it allows for fast insertion and deletion of elements at both ends.

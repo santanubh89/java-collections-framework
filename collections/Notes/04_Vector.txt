@@ -1,0 +1,18 @@
+Vector implements List interface.
+It is a legacy class from early versions of Java.
+Vector is synchronized, which means it is thread-safe.
+However, this synchronization can lead to performance overhead in single-threaded scenarios.
+Vector allows dynamic resizing, similar to ArrayList.
+When the internal array is full, Vector doubles its size by default.
+Vector provides methods like add(), remove(), get(), and size() to manipulate elements.
+
+Internally , Vector uses an array to store its elements.
+When elements are added beyond its current capacity, a new larger array is created, and existing elements are copied over.
+This resizing operation can be costly in terms of performance, especially if it happens frequently.
+The default resize factor is 2, meaning the capacity doubles each time it needs to grow.
+However, you can specify a different capacity increment when creating a Vector instance.
+For example:
+Vector<Integer> vector = new Vector<>(10, 5);
+In this case, the initial capacity is 10, and the capacity will increase by 5 each time it needs to grow.
+Vector also provides methods to trim its capacity to the current size using the trimToSize() method.
+This can help optimize memory usage if you know that no more elements will be added to the Vector.

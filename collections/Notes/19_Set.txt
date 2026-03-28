@@ -1,0 +1,26 @@
+Set does not contain duplicate elements.
+Set is an unordered collection of elements.
+Sets are often used when the uniqueness of elements is a priority.
+Set -> HashSet, LinkedHashSet, TreeSet, EnumSet, CopyOnWriteArraySet
+Faster operations for add, remove, and contains compared to List.
+
+HashSet:
+HashSet is an implementation of the Set interface that uses a hash table for storage.
+HashSet works similar to HashMap, where elements are stored based on their hash codes.
+
+LinkedHashSet:
+LinkedHashSet maintains a linked list of the entries in the set, in the order in which they were inserted.
+This allows for predictable iteration order.
+
+TreeSet:
+TreeSet implements the SortedSet interface and uses a red-black tree structure to store elements in a sorted order.
+Elements in a TreeSet are sorted based on their natural ordering or by a specified comparator.
+
+CopyOnWriteArraySet:
+CopyOnWriteArraySet is a thread-safe variant of Set that is backed by a CopyOnWriteArrayList.
+It is designed for concurrent access, allowing safe iteration even when the set is being modified by other threads.
+This is best for read-heavy scenarios where modifications are infrequent.
+
+EnumSet:
+EnumSet is a specialized Set implementation for use with enum types.
+It is highly efficient and provides a compact representation of enum constants.

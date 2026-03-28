@@ -1,0 +1,35 @@
+- ArrayList can grow and shrink dynamically as elements are added or removed, unlike standard arrays which have a fixed size once created. This dynamic resizing is managed achieved by creating a new array when the current array is full and copying the elements to the new array. Adding elements to the ArrayList essentially storing these elements in this internal array.
+
+- When an ArrayList is created, initial capacity is 10. This is the size of the internal array that can hold elements before needing to resize.
+
+- ArrayList allows for random access of elements using an index, similar to arrays, enabling efficient retrieval of elements.
+
+- ArrayList maintains the order of insertion, meaning elements are stored and accessed in the order they were added.
+
+- ArrayList can store duplicate elements, allowing multiple occurrences of the same value.
+
+- ArrayList is not synchronized by default, making it more suitable for single-threaded scenarios. For multi-threaded environments, consider using Collections.synchronizedList or CopyOnWriteArrayList.
+
+Adding Elements: O(n) in worst case due to resizing
+Step 1- Check capacity: ArrayList checks if there is enough capacity in the internal array (elementData) to add a new element. If the current size is equal to the length of the internal array, it needs to resize.
+Step 2- Resize if needed: If resizing is necessary, ArrayList creates a new internal array with a larger capacity (usually 1.5 times the current size) and copies the existing elements to the new array. Copying is O(n) operation, where n is the number of elements in the ArrayList.
+Step 3- Add the element: The new element is added to the next available index in the internal array, and the size of the ArrayList is incremented by one.
+
+Removing Elements: O(n) in worst case due to shifting
+Step 1- Check bounds: ArrayList first checks if the index provided for removal is within the valid range (0 to size-1). If not, it throws an IndexOutOfBoundsException.
+Step 2- Remove the element: The element at the specified index is removed. If the element is not at the end of the list, all subsequent elements are shifted one position to the left to fill the gap created by the removal. This shifting operation is O(n) in the worst case.
+Step 3- Decrement size: The size of the ArrayList is decremented by one to reflect the removal of the element. The capacity does not change during removal; the internal array remains the same size until a resize is triggered by adding new elements. However, trimToSize() can be called to reduce the capacity to match the current size if desired.
+
+Access Elements: O(1)
+Step 1- Check bounds: ArrayList checks if the index provided for access is within the valid range (0 to size-1). If not, it throws an IndexOutOfBoundsException.
+Step 2- Retrieve the element: The element at the specified index is directly accessed from the internal array (elementData) using the index. This direct access is O(1) operation, as it involves simple arithmetic to calculate the memory address of the element based on the index.
+
+Resizing Mechanism:
+When the internal array of an ArrayList reaches its capacity and a new element needs to be added, the resizing mechanism is triggered. The steps involved in resizing are as follows:
+Step 1- Calculate new capacity: The new capacity is typically calculated as 1.5 times the current capacity. This growth factor helps balance memory usage and performance.
+Step 2- Create new array: A new internal array is created with the calculated new capacity.
+Step 3- Copy elements: All existing elements from the old internal array are copied to the new array. This is done using System.arraycopy() method, which is optimized for performance.
+Step 4- Update reference: The reference to the internal array (elementData) is updated to point to the new array.
+Step 5- Add new element: The new element is then added to the next available index in the new internal array, and the size of the ArrayList is incremented by one.
+
+Iteration: O(n)

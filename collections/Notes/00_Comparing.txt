@@ -1,0 +1,16 @@
+Comparator:
+An interface used to define a custom order for sorting objects. It contains a single method, compare(T o1, T o2), which compares two objects and returns an integer indicating their relative order. The compare method returns a negative integer, zero, or a positive integer if the first argument is less than, equal to, or greater than the second argument, respectively.
+// Sort by name (Ascending)
+class EmployeeNameComparator implements Comparator<Employee> {
+    @Override
+    public int compare(Employee o1, Employee o2) {
+        return o1.getName().compareTo(o2.getName());
+    }
+}
+
+Comparable:
+An interface that defines a natural ordering for objects of a class. It contains a single method, compareTo(T o), which compares the current object with another object of the same type. The compareTo method returns a negative integer, zero, or a positive integer if the current object is less than, equal to, or greater than the specified object, respectively.
+@Override
+public int compareTo(Student other) {
+    return Double.compare(other.marks, this.marks);
+}

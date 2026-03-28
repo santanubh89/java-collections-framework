@@ -1,0 +1,11 @@
+NavigableMap extends SortedMap, providing navigation methods such as finding the closest matching key or retrieving the map in reverse order. It is implemented by TreeMap.
+NavigableMap Methods:
+- lowerEntry(K key): Returns a key-value mapping associated with the greatest key strictly less than the given key, or null if there is no such key.
+- floorEntry(K key): Returns a key-value mapping associated with the greatest key less than or equal to the given key, or null if there is no such key.
+- ceilingEntry(K key): Returns a key-value mapping associated with the least key greater than or equal to the given key, or null if there is no such key.
+- higherEntry(K key): Returns a key-value mapping associated with the least key strictly greater than the given key, or null if there is no such key.
+- pollFirstEntry(): Removes and returns a key-value mapping associated with the least key in this map, or null if the map is empty.
+- pollLastEntry(): Removes and returns a key-value mapping associated with the greatest key in this map, or null if the map is empty.
+- descendingMap(): Returns a reverse order view of the mappings contained in this map.
+- navigableKeySet(): Returns a NavigableSet view of the keys contained in this map.
+- descendingKeySet(): Returns a reverse order NavigableSet view of the keys contained in this map.

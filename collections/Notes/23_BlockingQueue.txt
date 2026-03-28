@@ -1,0 +1,16 @@
+BlockingQueue is a thread-safe queue that supports operations that wait for the queue to become non-empty when retrieving an element and wait for space to become available in the queue when storing an element. It is part of the java.util.concurrent package in Java.
+Simplifies concurrency problems like producer-consumer scenarios.
+put --> adds an element to the queue, waiting if necessary for space to become available.
+take --> retrieves and removes an element from the queue, waiting if necessary until an element becomes available
+offer --> adds an element to the queue if space is available, returning true upon success and false if no space is available.
+poll --> retrieves and removes an element from the queue if available, returning null if the queue is empty.
+
+ArrayBlockingQueue: A bounded blocking queue backed by an array. It has a fixed capacity and blocks when trying to add elements to a full queue or remove elements from an empty queue. This has Low memory overhead due to array structure. Uses a single lock for both put and take operations, which can lead to contention under high concurrency, which means more threads would cause delays.
+
+LinkedBlockingQueue: A optionally bounded blocking queue backed by linked nodes. It can be bounded or unbounded and is typically used in producer-consumer scenarios. This is backed by a linked list structure. This uses two separate locks for put and take operations, allowing higher concurrency and throughput. Meaning, higher concurrency between producers and consumers.
+
+PriorityBlockingQueue: An unbounded blocking queue that uses the same ordering rules as PriorityQueue. It allows elements to be processed based on their priority (natural order) rather than their insertion order. Default initial capacity is 11. This does not block on insertions since it is unbounded, but retrieval operations will block if the queue is empty. Uses binary heap structure to maintain order and can grow dynamically as needed. This can handle priority in producer-consumer scenarios.
+
+SynchronousQueue: A blocking queue that does not store elements. Instead, each insert operation must wait for a corresponding remove operation by another thread, and vice versa. The capacity is zero. This is used for handoff designs where one thread passes data directly to another. This does not store elements, so it has minimal memory overhead. Each put must wait for a take, and each take must wait for a put, ensuring direct handoff between threads. This is ideal for scenarios where tasks need to be handed off directly between producer and consumer threads without any buffering.
+
+DelayQueue: A time-based scheduling queue that holds elements until a specified delay has expired. Elements can only be taken from the queue when their delay has elapsed. This is used for scheduling tasks to be executed after a certain delay. This is backed by a priority heap structure to efficiently manage delayed elements. Retrieval operations block until the delay for the head element has expired, ensuring timely processing of scheduled tasks.

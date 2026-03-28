@@ -1,0 +1,8 @@
+SortedMap is an interface that extends Map and guarantees that the entries are sorted based on the keys, either in their natural order (if the keys implement Comparable) or according to a specified Comparator. It provides methods to access the first and last keys, as well as methods to retrieve sub-maps based on key ranges.
+
+TreeMap is a concrete implementation of the SortedMap interface that uses a Red-Black tree structure to store its entries. It maintains the sorted order of keys and provides efficient operations for insertion, deletion, and lookup.
+
+get, containsKey -> O(log(n))
+firstKey, lastKey -> O(log(n))
+subMap, headMap, tailMap -> O(log(n))
+containsValue -> O(n)

@@ -1,0 +1,5 @@
+ConcurrentLinkedQueue is a thread-safe, non-blocking queue based on linked nodes. It is part of the java.util.concurrent package and is designed for high concurrency scenarios. The queue uses compare-and-swap (CAS) operations to ensure that multiple threads can add and remove elements concurrently without locking. This suppors locks-free algorithms, which can lead to better performance in multi-threaded environments.
+Can perform put and take operations concurrently by multiple threads.
+
+ConcurrentLinkedDeque is a thread-safe, non-blocking double-ended queue (deque) based on linked nodes. It is part of the java.util.concurrent package and is designed for high concurrency scenarios. Similar to ConcurrentLinkedQueue, it uses compare-and-swap (CAS) operations to allow multiple threads to add and remove elements concurrently without locking. This supports lock-free algorithms, which can lead to better performance in multi-threaded environments.
+Can perform put and take operations concurrently by multiple threads from both ends of the deque.

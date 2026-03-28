@@ -1,0 +1,12 @@
+Copy on Write means that when you modify a data structure, instead of changing the existing list, a new copy of the structure is created with the modifications.
+
+This approach is particularly useful in multi-threaded environments where read operations are more frequent than write operations, as it allows readers to access a stable version of the data without being affected by concurrent modifications.
+
+Read: Fast and direct, as this happens on a stable list without interference from modifications.
+Write: Slower, as it involves creating a new copy of the entire list with the changes applied. A new copy creates for every write operation.
+
+Real-world use cases:
+1. Caching: When you have a cache that is read frequently but updated infrequently, using Copy on Write can help ensure that readers always see a consistent view of the cache.
+2. Configuration Management: In systems where configuration settings are read often but changed rarely, Copy on Write can help maintain a stable configuration state for readers.
+3. Event Handling Systems: In event-driven architectures where event listeners are frequently read but infrequently modified, Copy on Write can help ensure that event dispatching remains consistent.
+4. GUI Frameworks: In graphical user interfaces, where the state of UI components is read frequently but updated infrequently, Copy on Write can help maintain a consistent view of the UI state for rendering.

@@ -1,0 +1,23 @@
+Map is an object that maps keys to values.
+Map cannot contain duplicate keys; each key can map to at most one value.
+
+Map does not extend the Collection interface.
+
+Features of Map:
+- Key-Value Pairs: Each element in a Map is a key-value pair.
+- Unique Keys: Keys in a Map are unique. If you try to add a key that already exists, the new value will replace the old value.
+- Null Keys and Values: Some Map implementations allow null keys and null values (e.g., HashMap allows one null key and multiple null values.
+- Different Implementations: Common implementations include HashMap, TreeMap, and LinkedHashMap, each with different performance characteristics and ordering guarantees.
+
+- Map:
+    - HashMap
+        - LinkedHashMap
+        - WeakHashMap
+        - IdentityHashMap
+    - HashTable
+    - SortedMap
+        - TreeMap
+        - NavigableMap
+    - ConcurrentMap
+        - ConcurrentHashMap
+        - ConcurrentSkipListMap

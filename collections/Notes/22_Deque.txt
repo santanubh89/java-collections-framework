@@ -1,0 +1,25 @@
+Deque = Double Ended Queue
+LinkedList implements Deque interface
+Allows insertion and deletion from both ends
+Can be used as stack or queue
+This class is likely to be faster than Stack when used as a stack, and faster than LinkedList when used as a queue.
+Deque is faster because it does not have the overhead of maintaining the doubly-linked list structure of LinkedList and uses arrays instead. It takes less memory as it does not store pointers to the next and previous elements.
+
+Common methods:
+Insertion:
+addFirst(E e) - Inserts element at the front
+addLast(E e) - Inserts element at the end
+offerFirst(E e) - Inserts element at the front, returns false if fails
+offerLast(E e) - Inserts element at the end, returns false if fails
+push(E e) - Inserts element at the front (stack behavior)
+Deletion:
+removeFirst() - Removes and returns the first element
+removeLast() - Removes and returns the last element
+pollFirst() - Removes and returns the first element, returns null if empty
+pollLast() - Removes and returns the last element, returns null if empty
+pop() - Removes and returns the first element (stack behavior)
+Access:
+getFirst() - Returns the first element without removing
+getLast() - Returns the last element without removing
+peekFirst() - Returns the first element without removing, returns null if empty
+peekLast() - Returns the last element without removing, returns null if empty

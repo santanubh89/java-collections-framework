@@ -1,0 +1,41 @@
+The root interface for collection types. Extends Iterable interface. Iterable allows for-each loop iteration over the collection.
+
+- List: Ordered collection that can contain duplicate elements. Can control position of insertion and access elements by index.
+    - ArrayList: Resizable-array implementation of the List interface. Can change size dynamically as elements are added or removed.
+    - LinkedList
+    - Vector
+    - Stack
+    - CopyOnWriteArrayList
+
+- Set: Unordered collection that does not allow duplicate elements.
+    - HashSet
+    - LinkedHashSet
+    - TreeSet
+    - EnumSet
+    - CopyOnWriteArraySet
+    - SortedSet
+    - ConcurrentSkipListSet
+
+- Queue: Collection designed for holding elements prior to processing.
+    - PriorityQueue
+    - LinkedList (also implements List)
+    - BlockingQueue
+        - ArrayBlockingQueue
+        - LinkedBlockingQueue
+        - PriorityBlockingQueue
+        - SynchronousQueue
+        - DelayQueue
+    - ConcurrentLinkedQueue
+    - Deque (also implements Queue): A double-ended queue that allows insertion and removal from both ends.
+        - ArrayDeque
+        - LinkedList (also implements List)
+        - ConcurrentLinkedDeque
+- Map (not a collection, but part of the Collections Framework): Object that maps keys to values, with no duplicate keys allowed.
+    - HashMap
+    - LinkedHashMap
+    - TreeMap
+    - Hashtable
+    - SortedMap
+    - ConcurrentHashMap
+    - WeakHashMap
+    - IdentityHashMap

@@ -1,0 +1,62 @@
+Characteristics:
+- Unordered collection of key-value pairs
+- Allows one null key and multiple null values
+- Not synchronized (not thread-safe)
+- Provides constant-time (O(1)) performance for basic operations (get and put) on average, assuming the hash function disperses elements properly
+
+Internal structure: Four key elements:
+- Keys: Unique identifiers used to retrieve values.
+- Values: Data associated with keys.
+- Buckets: Array of linked lists or trees that store key-value pairs based on their hash codes.
+
+- Hash Function: Computes the hash code for keys to determine their bucket location. Hash function is an input that takes the key and returns a fixed size string of bytes. The output is typically a "digest" that is unique to each unique input and is called a hash code or hash value or simply hash. The primary purpose of a hash function is to distribute keys uniformly across the buckets to minimize collisions.
+Hash function is deterministic, meaning the same input will always produce the same output.
+Fixed output size: Regardless of the input size, the output hash code has a fixed size.
+Efficient computation: Hash functions are designed to be fast to compute.
+
+HashMap operations:::
+How data is stored (put) in a HashMap:
+----------------------------------------
+1. Compute the hash code of the key using the hash function. The key is passed through a hash function to generate a hash code, which is an integer value. This hash code is used to determine the index of the bucket array where the key-value pair will be stored.
+2. Determine the bucket index: The hash code is then used to calculate the index of the bucket array where the key-value pair will be stored. This is typically done using the modulo operator with the size of the bucket array.
+int index = hashCode % bucketArraySize;
+3. Handle collisions: If multiple keys hash to the same bucket index, a collision occurs. HashMap handles collisions using separate chaining (linked lists or trees) or open addressing (probing).
+4. Store the key-value pair: The key-value pair is then stored in the appropriate bucket. If a collision occurred, the new key-value pair is added to the linked list or tree at that bucket.
+
+How data is retrieved (get) from a HashMap:
+---------------------------------------------
+1. Compute the hash code of the key: Similar to the put operation, the hash code of the key is computed using the hash function.
+2. Determine the bucket index: The hash code is used to calculate the index of the bucket array where the key-value pair is stored.
+3. Search for the key: The HashMap then searches the appropriate bucket for the key. If there are multiple key-value pairs in the bucket (due to collisions), it will iterate through the linked list or tree to find the matching key.
+4. Retrieve the value: Once the key is found, the associated value is returned. If the key is not found, the HashMap returns null.
+
+Hash Collision:
+If two different keys produce the same hash code, a hash collision occurs. HashMap handles collisions using separate chaining (linked lists or trees) or open addressing (probing).
+Each element in the bucket is typically represented as a key-value pair object, which contains both the key and the associated value. When a collision occurs, the new key-value pair is added to the linked list or tree at that bucket.
+Node<K,V> {
+    final int hash;
+    final K key;
+    V value;
+    Node<K,V> next;
+}
+The "next" field points to the next node in the linked list, allowing multiple key-value pairs to be stored in the same bucket, in case of collisions.
+Each element in the bucket is a Linked List of Node objects, where each Node contains a key-value pair and a reference to the next Node in the list.
+After Java 8, if the size of the linked list exceeds a certain threshold (TREEIFY_THRESHOLD = 8), the linked list is converted into a balanced tree (self balancing Binary Search Tree - Red-Black Tree) to improve search performance. This is called treeification, as the search time complexity improves from O(n) to O(log n) in such cases.
+
+HashMap resizing:
+When the number of key-value pairs in the HashMap exceeds a certain threshold (load factor), the HashMap automatically resizes itself to maintain efficient performance. The default load factor is 0.75, meaning that when the number of entries exceeds 75% of the current capacity, the HashMap will resize.
+Resizing involves creating a new bucket array with double the capacity of the current array and rehashing all existing key-value pairs to their new bucket locations based on the new array size. This process is called rehashing.
+Resizing is an expensive operation, as it requires rehashing all existing entries. Therefore, it's important to choose an appropriate initial capacity and load factor based on the expected number of entries to minimize the number of resizes.
+
+Time Complexity:
+----------------
+Put: Average case: O(1), Worst case: O(n) (due to collisions)
+Get: Average case: O(1), Worst case: O(log(n))
+Remove: Average case: O(1), Worst case: O(log(n))
+Contains Key: Average case: O(1), Worst case: O(log(n))
+Contains Value: Average case: O(n), Worst case: O(n)
+Size: O(1)
+Overall Time Complexity Analysis:
+- Average case: O(1) for get and put operations
+- Worst case: O(n) for get and put operations (when many collisions occur and all elements are stored in a single bucket). After Java 8, this is improved to O(log n) due to treeification.
+- Resizing: O(n) (when the HashMap needs to be resized and all entries need to be rehashed)

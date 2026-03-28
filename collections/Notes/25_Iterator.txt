@@ -1,0 +1,10 @@
+If a class implemented Iterable, you could use it in a for-each loop.
+for (Type item : iterableObject) {
+    // Use item
+} gets converted to:
+Iterator<Type> iterator = iterableObject.iterator();
+while (iterator.hasNext()) {
+    Type item = iterator.next();
+    // Use item
+}
+Iterator provides a way to access elements of a collection sequentially without exposing the underlying representation. Also, it is possible to remove elements from the collection during iteration using the Iterator's remove() method.
